@@ -1,0 +1,8 @@
+<div *ngIf="currentUser; else unauthorized">
+  <p>{{ currentUser }}</p>
+  <button type="button">Sign Out</button>
+</div>
+
+<ng-template #unauthorized>
+  <button type="button">Sign In</button>
+</ng-template>
