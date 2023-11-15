@@ -2,10 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
+html,
+body {
   height: 100%;
 }
 
 body {
-  height: inherit;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
