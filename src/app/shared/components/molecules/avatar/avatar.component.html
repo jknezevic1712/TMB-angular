@@ -1,0 +1,13 @@
+<span class="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full">
+  <img
+    *ngIf="imageUrl; else fallback"
+    class="aspect-square h-full w-full"
+    [src]="imageUrl"
+    [alt]="imageAlt ? imageAlt : 'user avatar'"
+  />
+  <ng-template #fallback>
+    <span class="flex h-full w-full items-center justify-center rounded-full"
+      >...</span
+    >
+  </ng-template>
+</span>

@@ -1,8 +1,7 @@
-<div *ngIf="currentUser; else unauthorized">
-  <!-- TODO: instead p tag here, insert an Avatar component representing users' profile icon -->
-  <p>{{ currentUser }}</p>
+<ng-container *ngIf="currentUser; else unauthorized">
+  <app-avatar imageAlt="propImageAlt" />
   <button type="button" mat-raised-button color="warn">Sign out</button>
-</div>
+</ng-container>
 
 <ng-template #unauthorized>
   <button type="button" mat-raised-button color="primary">Sign In</button>
