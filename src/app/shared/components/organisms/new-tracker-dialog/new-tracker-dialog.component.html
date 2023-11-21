@@ -1,0 +1,63 @@
+<div
+  class="relative flex w-[80dvw] flex-col items-center justify-start p-4 text-zinc-50 md:w-[512px]"
+>
+  <button
+    mat-icon-button
+    color="warn"
+    class="absolute-impt right-0 top-0"
+    (click)="onNoClick()"
+    aria-label="Close dialog"
+  >
+    <ng-icon name="radixCross2"></ng-icon>
+  </button>
+  <div class="w-full text-start">
+    <h1 class="capitalize">{{ props.title }}</h1>
+    <span class="font-light">Please provide details</span>
+  </div>
+  <form
+    mat-dialog-content
+    (ngSubmit)="props.onSubmit(f)"
+    #f="ngForm"
+    class="w-full"
+  >
+    <mat-form-field class="w-full">
+      <mat-label>Assignee</mat-label>
+      <input matInput name="assignee" ngModel required />
+    </mat-form-field>
+
+    <mat-form-field class="w-full">
+      <mat-label>Title</mat-label>
+      <input matInput name="title" ngModel required />
+    </mat-form-field>
+
+    <mat-form-field class="w-full">
+      <mat-label>Description</mat-label>
+      <textarea
+        class="min-h-[80px]"
+        matInput
+        name="description"
+        ngModel
+        required
+      ></textarea>
+    </mat-form-field>
+
+    <mat-form-field class="w-full">
+      <mat-label>Due Date</mat-label>
+      <input matInput [matDatepicker]="dueDate" (click)="dueDate.open()" />
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="dueDate"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #dueDate></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="w-full">
+      <mat-label>Priority</mat-label>
+      <input matInput name="priority" ngModel required />
+    </mat-form-field>
+  </form>
+
+  <div mat-dialog-actions class="self-end">
+    <button mat-button cdkFocusInitial>Save</button>
+  </div>
+</div>
